@@ -1,0 +1,309 @@
+/* ==========================================================================
+   EXPENSE SPLITTER | Modern Finance Dashboard - Dark Navy Theme
+   ========================================================================== */
+
+.root {
+    -fx-font-family: "Segoe UI", "Inter", -apple-system, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #0b1329;
+    -fx-text-fill: #f8fafc;
+
+    /* Theme Palette Variables */
+    -color-bg-base: #0b1329;
+    -color-bg-sidebar: #0f172a;
+    -color-bg-card: #1e293b;
+    -color-bg-card-hover: #243247;
+    -color-bg-input: #0f172a;
+    -color-border: #334155;
+    -color-border-subtle: #1e293b;
+
+    -color-primary: #3b82f6;
+    -color-primary-hover: #2563eb;
+    -color-success: #10b981;
+    -color-success-bg: rgba(16, 185, 129, 0.15);
+    -color-danger: #ef4444;
+    -color-danger-bg: rgba(239, 68, 68, 0.15);
+    -color-warning: #f59e0b;
+    -color-text-primary: #f8fafc;
+    -color-text-secondary: #94a3b8;
+    -color-text-muted: #64748b;
+}
+
+/* ==========================================================================
+   Sidebar Navigation
+   ========================================================================== */
+.sidebar {
+    -fx-background-color: #0f172a;
+    -fx-border-color: transparent #1e293b transparent transparent;
+    -fx-border-width: 0 1px 0 0;
+    -fx-padding: 20px 14px;
+}
+
+.sidebar-brand-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.sidebar-brand-subtitle {
+    -fx-font-size: 11px;
+    -fx-text-fill: #94a3b8;
+    -fx-padding: 0 0 16px 0;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10px 14px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: rgba(59, 130, 246, 0.1);
+    -fx-text-fill: #ffffff;
+}
+
+.nav-button.active {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(59, 130, 246, 0.4), 8, 0, 0, 2);
+}
+
+.user-profile-badge {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px 12px;
+}
+
+/* ==========================================================================
+   Cards & Layout Containers
+   ========================================================================== */
+.card {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 10, 0, 0, 4);
+}
+
+.card:hover {
+    -fx-border-color: #475569;
+}
+
+.card-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f8fafc;
+}
+
+.card-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #94a3b8;
+}
+
+.metric-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.metric-green {
+    -fx-text-fill: #10b981;
+}
+
+.metric-red {
+    -fx-text-fill: #ef4444;
+}
+
+.metric-blue {
+    -fx-text-fill: #3b82f6;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn-primary {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 18px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #2563eb;
+    -fx-effect: dropshadow(three-pass-box, rgba(59, 130, 246, 0.4), 8, 0, 0, 2);
+}
+
+.btn-success {
+    -fx-background-color: #10b981;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-padding: 9px 16px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.btn-success:hover {
+    -fx-background-color: #059669;
+}
+
+.btn-danger {
+    -fx-background-color: #ef4444;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 14px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #dc2626;
+}
+
+.btn-secondary {
+    -fx-background-color: #334155;
+    -fx-text-fill: #f8fafc;
+    -fx-padding: 9px 16px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #475569;
+}
+
+/* ==========================================================================
+   Form Fields
+   ========================================================================== */
+.text-field, .password-field, .text-area, .combo-box, .date-picker {
+    -fx-background-color: #0f172a;
+    -fx-text-fill: #f8fafc;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 12px;
+}
+
+.text-field:focused, .password-field:focused, .text-area:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #3b82f6;
+    -fx-effect: dropshadow(three-pass-box, rgba(59, 130, 246, 0.3), 6, 0, 0, 1);
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #f8fafc;
+    -fx-background-color: #0f172a;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: #ffffff;
+}
+
+/* ==========================================================================
+   TableView Styling
+   ========================================================================== */
+.table-view {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #0f172a;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #334155 transparent;
+    -fx-padding: 10px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #94a3b8;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-row-cell {
+    -fx-background-color: #1e293b;
+    -fx-border-color: transparent transparent #253347 transparent;
+    -fx-padding: 4px 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #182234;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #24334c;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(59, 130, 246, 0.25);
+}
+
+.table-cell {
+    -fx-text-fill: #f8fafc;
+}
+
+/* ==========================================================================
+   Badges & Pills
+   ========================================================================== */
+.badge-green {
+    -fx-background-color: rgba(16, 185, 129, 0.2);
+    -fx-text-fill: #10b981;
+    -fx-padding: 4px 10px;
+    -fx-background-radius: 20px;
+    -fx-font-weight: bold;
+}
+
+.badge-red {
+    -fx-background-color: rgba(239, 68, 68, 0.2);
+    -fx-text-fill: #ef4444;
+    -fx-padding: 4px 10px;
+    -fx-background-radius: 20px;
+    -fx-font-weight: bold;
+}
+
+.badge-blue {
+    -fx-background-color: rgba(59, 130, 246, 0.2);
+    -fx-text-fill: #60a5fa;
+    -fx-padding: 4px 10px;
+    -fx-background-radius: 20px;
+    -fx-font-weight: bold;
+}
+
+/* Charts */
+.chart-pie-label {
+    -fx-fill: #f8fafc;
+}
+
+.chart-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.axis-label, .chart-legend {
+    -fx-text-fill: #94a3b8;
+}
+
+.axis {
+    -fx-tick-label-fill: #94a3b8;
+}
+

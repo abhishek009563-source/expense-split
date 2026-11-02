@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.expensesplitter.controller.MainLayoutController"
+            prefHeight="800" prefWidth="1250"
+            style="-fx-background-color: -color-bg-base;">
+
+    <!-- Left Navigation Sidebar -->
+    <left>
+        <VBox prefWidth="255" spacing="12" styleClass="sidebar">
+            
+            <!-- Branding Header -->
+            <VBox spacing="4" style="-fx-padding: 6 6 12 6;">
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="⚡" style="-fx-font-size: 20px; -fx-text-fill: #3b82f6;"/>
+                    <Label text="ExpenseSplitter" styleClass="sidebar-brand-title"/>
+                </HBox>
+                <Label text="Smart Group Finance Engine" styleClass="sidebar-brand-subtitle"/>
+            </VBox>
+
+            <!-- Navigation Links -->
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background: transparent; -fx-padding: 0;">
+                <VBox spacing="6">
+                    <Button fx:id="navDashboard" text="📊  Dashboard" onAction="#showDashboard" maxWidth="Infinity" styleClass="nav-button"/>
+                    <Button fx:id="navGroups" text="👥  My Groups" onAction="#showGroups" maxWidth="Infinity" styleClass="nav-button"/>
+                    <Button fx:id="navAddExpense" text="➕  Add Expense" onAction="#showAddExpense" maxWidth="Infinity" styleClass="nav-button"/>
+                    <Button fx:id="navExpenses" text="📑  Expenses List" onAction="#showExpenses" maxWidth="Infinity" styleClass="nav-button"/>
+                    <Button fx:id="navBalances" text="⚖️  Balances &amp; Debts" onAction="#showBalances" maxWidth="Infinity" styleClass="nav-button"/>
+                    <Button fx:id="navSettlements" text="🤝  Settle Up" onAction="#showSettlements" maxWidth="Infinity" styleClass="nav-button"/>
+                    <Button fx:id="navReports" text="📈  Analytics &amp; Reports" onAction="#showReports" maxWidth="Infinity" styleClass="nav-button"/>
+                    
+                    <HBox alignment="CENTER_LEFT" maxWidth="Infinity">
+                        <Button fx:id="navNotifications" text="🔔  Notifications" onAction="#showNotifications" HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="nav-button"/>
+                        <Label fx:id="notificationBadgeLabel" text="3" style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 2 6; -fx-background-radius: 10;"/>
+                    </HBox>
+
+                    <Button fx:id="navSettings" text="⚙️  Settings" onAction="#showSettings" maxWidth="Infinity" styleClass="nav-button"/>
+                </VBox>
+            </ScrollPane>
+
+            <Separator style="-fx-opacity: 0.2;"/>
+
+            <!-- Theme Switcher & User Profile -->
+            <VBox spacing="10">
+                <Button text="🌓  Toggle Dark / Light Theme" onAction="#handleToggleTheme" maxWidth="Infinity" styleClass="btn-secondary" style="-fx-font-size: 11px; -fx-padding: 8;"/>
+
+                <HBox spacing="10" alignment="CENTER_LEFT" styleClass="user-profile-badge">
+                    <VBox spacing="2" HBox.hgrow="ALWAYS">
+                        <Label fx:id="userFullNameLabel" text="User Name" style="-fx-font-weight: bold; -fx-text-fill: -color-text-primary; -fx-font-size: 12px;"/>
+                        <Label fx:id="usernameLabel" text="\@username" style="-fx-text-fill: -color-text-secondary; -fx-font-size: 11px;"/>
+                    </VBox>
+                    <Button text="🚪" onAction="#handleLogout" styleClass="btn-danger" style="-fx-font-size: 11px; -fx-padding: 6 8;"/>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </left>
+
+    <!-- Main Dynamic Content Workspace -->
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-background-color: -color-bg-base;">
+            <padding>
+                <Insets top="16" right="20" bottom="16" left="20"/>
+            </padding>
+        </StackPane>
+    </center>
+
+</BorderPane>
+

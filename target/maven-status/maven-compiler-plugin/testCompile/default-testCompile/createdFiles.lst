@@ -1,0 +1,4 @@
+com\expensesplitter\SplitCalculatorTest.class
+com\expensesplitter\DebtSimplifierTest.class
+com\expensesplitter\NotificationTemplateAndDispatchTest.class
+com\expensesplitter\NotificationValidationTest.class
