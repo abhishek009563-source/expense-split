@@ -1,62 +1,69 @@
 package com.expensesplitter.controller;
 
 import com.expensesplitter.Main;
-import com.expensesplitter.service.AuthService;
-import com.expensesplitter.util.AlertHelper;
+import com.expensesplitter.model.PendingOtp;
+import com.expensesplitter.service.OtpService;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+/**
+ * Registration controller – collects Full Name + Email,
+ * initiates OTP flow, then navigates to OTP verification screen.
+ */
 public class RegisterController {
 
     @FXML private TextField fullNameField;
-    @FXML private TextField usernameField;
     @FXML private TextField emailField;
-    @FXML private TextField phoneField;
-    @FXML private PasswordField passwordField;
-    @FXML private PasswordField confirmPasswordField;
+    @FXML private Button createAccountButton;
     @FXML private Label errorLabel;
+    @FXML private Label statusLabel;
 
-    private final AuthService authService = new AuthService();
+    private final OtpService otpService = new OtpService();
 
     @FXML
     public void initialize() {
         errorLabel.setVisible(false);
+        statusLabel.setVisible(false);
     }
 
     @FXML
     public void handleRegister() {
+        clearMessages();
         String fullName = fullNameField.getText().trim();
-        String username = usernameField.getText().trim();
-        String email = emailField.getText().trim();
-        String phone = phoneField.getText().trim();
-        String password = passwordField.getText();
-        String confirm = confirmPasswordField.getText();
+        String email    = emailField.getText().trim();
 
-        if (fullName.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            showError("Please fill in all required fields.");
-            return;
-        }
+        if (fullName.isEmpty()) { showError("Please enter your full name."); return; }
+        if (email.isEmpty())    { showError("Please enter your email address."); return; }
 
-        if (!password.equals(confirm)) {
-            showError("Passwords do not match. Please verify.");
-            return;
-        }
+        createAccountButton.setDisable(true);
+        createAccountButton.setText("Sending OTP…");
+        showStatus("Sending verification code to " + email + "…");
 
-        try {
-            boolean created = authService.register(username, fullName, email, password, phone);
-            if (created) {
-                AlertHelper.showInformation("Account Created", "Your account @" + username + " has been registered successfully! Please log in.");
-                Main.showLoginView();
-            } else {
-                showError("Unable to create account. Please check your information.");
+        new Thread(() -> {
+            try {
+                otpService.initiateRegistration(fullName, email);
+                Platform.runLater(() -> {
+                    createAccountButton.setDisable(false);
+                    createAccountButton.setText("Create Account →");
+                    Main.showOtpView(email, fullName, PendingOtp.OtpPurpose.REGISTER);
+                });
+            } catch (IllegalArgumentException e) {
+                Platform.runLater(() -> {
+                    createAccountButton.setDisable(false);
+                    createAccountButton.setText("Create Account →");
+                    showError(e.getMessage());
+                });
+            } catch (Exception e) {
+                Platform.runLater(() -> {
+                    createAccountButton.setDisable(false);
+                    createAccountButton.setText("Create Account →");
+                    showError("Error: " + e.getMessage());
+                });
             }
-        } catch (IllegalArgumentException e) {
-            showError(e.getMessage());
-        } catch (Exception e) {
-            showError("Registration error: " + e.getMessage());
-        }
+        }, "register-otp-thread").start();
     }
 
     @FXML
@@ -65,8 +72,19 @@ public class RegisterController {
     }
 
     private void showError(String msg) {
-        errorLabel.setText(msg);
+        errorLabel.setText("⚠ " + msg);
         errorLabel.setVisible(true);
+        statusLabel.setVisible(false);
+    }
+
+    private void showStatus(String msg) {
+        statusLabel.setText("⏳ " + msg);
+        statusLabel.setVisible(true);
+        errorLabel.setVisible(false);
+    }
+
+    private void clearMessages() {
+        errorLabel.setVisible(false);
+        statusLabel.setVisible(false);
     }
 }
-

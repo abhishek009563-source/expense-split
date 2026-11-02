@@ -6,6 +6,7 @@ C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplit
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\controller\LoginController.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\controller\MainLayoutController.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\controller\NotificationsController.java
+C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\controller\OtpVerifyController.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\controller\RegisterController.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\controller\ReportsController.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\controller\SettingsController.java
@@ -13,6 +14,7 @@ C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplit
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\dao\ExpenseDao.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\dao\GroupDao.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\dao\NotificationDao.java
+C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\dao\OtpDao.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\dao\SettlementDao.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\dao\UserDao.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\database\DatabaseInitializer.java
@@ -30,6 +32,7 @@ C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplit
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\model\Notification.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\model\NotificationChannel.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\model\NotificationStatus.java
+C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\model\PendingOtp.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\model\Settlement.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\model\SimplifiedDebt.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\model\SplitMethod.java
@@ -43,6 +46,7 @@ C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplit
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\service\NotificationDispatcher.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\service\NotificationService.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\service\NotificationTemplates.java
+C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\service\OtpService.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\service\SettlementService.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\service\SmsGateway.java
 C:\Users\Lenovo\Desktop\ant.gvt1\expense_splitter\src\main\java\com\expensesplitter\util\AlertHelper.java

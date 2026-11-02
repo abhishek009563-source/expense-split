@@ -1,7 +1,9 @@
 package com.expensesplitter;
 
+import com.expensesplitter.controller.OtpVerifyController;
 import com.expensesplitter.database.DatabaseInitializer;
 import com.expensesplitter.database.DatabaseManager;
+import com.expensesplitter.model.PendingOtp;
 import com.expensesplitter.util.CurrencyFormatter;
 import com.expensesplitter.util.SessionManager;
 import javafx.application.Application;
@@ -49,6 +51,25 @@ public class Main extends Application {
 
     public static void showMainLayout() {
         loadRootView("/fxml/main_layout.fxml", 1250, 800);
+    }
+
+    /**
+     * Navigates to the OTP verification screen.
+     * Passes email, fullName, and purpose to the controller after loading.
+     */
+    public static void showOtpView(String email, String fullName, PendingOtp.OtpPurpose purpose) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/otp_verify.fxml"));
+            Parent root = loader.load();
+            OtpVerifyController ctrl = loader.getController();
+            ctrl.initContext(email, fullName, purpose);
+            Scene scene = new Scene(root, 920, 660);
+            applyCurrentTheme(scene);
+            primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void loadRootView(String fxmlPath, double width, double height) {

@@ -1,4 +1,5 @@
 com\expensesplitter\dao\NotificationDao.class
+com\expensesplitter\model\PendingOtp.class
 com\expensesplitter\util\CurrencyFormatter.class
 com\expensesplitter\controller\BalancesController$2.class
 com\expensesplitter\service\NotificationConfig.class
@@ -6,8 +7,10 @@ com\expensesplitter\controller\AddExpenseController$4.class
 com\expensesplitter\engine\SplitCalculator.class
 com\expensesplitter\model\Balance.class
 com\expensesplitter\engine\DebtSimplifier$Node.class
+com\expensesplitter\service\OtpService$VerifyResult.class
 com\expensesplitter\model\NotificationStatus.class
 com\expensesplitter\controller\LoginController.class
+com\expensesplitter\controller\OtpVerifyController.class
 com\expensesplitter\controller\SettlementsController.class
 com\expensesplitter\model\GroupMember.class
 com\expensesplitter\controller\SettlementsController$4.class
@@ -51,11 +54,13 @@ com\expensesplitter\util\ValidationUtils.class
 com\expensesplitter\controller\SettlementsController$6.class
 com\expensesplitter\database\DatabaseManager.class
 com\expensesplitter\service\ExpenseService.class
+com\expensesplitter\service\OtpService.class
 com\expensesplitter\service\NotificationService.class
 com\expensesplitter\controller\AddExpenseController.class
 com\expensesplitter\controller\BalancesController.class
 com\expensesplitter\service\DeliveryResult.class
 com\expensesplitter\controller\GroupsController$3.class
+com\expensesplitter\model\PendingOtp$OtpPurpose.class
 com\expensesplitter\controller\AddExpenseController$3.class
 com\expensesplitter\controller\RegisterController.class
 com\expensesplitter\controller\SettlementsController$2.class
@@ -65,6 +70,7 @@ com\expensesplitter\controller\ReportsController$2.class
 com\expensesplitter\service\AuthService.class
 com\expensesplitter\dao\UserDao.class
 com\expensesplitter\model\User.class
+com\expensesplitter\dao\OtpDao.class
 com\expensesplitter\service\SmsGateway.class
 com\expensesplitter\util\PasswordHasher.class
 com\expensesplitter\util\AlertHelper.class

@@ -139,6 +139,22 @@ public class DatabaseInitializer {
                 );
             """);
 
+            // 9. Pending OTPs table (registration & login verification)
+            stmt.execute("""
+                CREATE TABLE IF NOT EXISTS pending_otps (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    email TEXT NOT NULL,
+                    full_name TEXT,
+                    otp_hash TEXT NOT NULL,
+                    purpose TEXT NOT NULL,
+                    expires_at TEXT NOT NULL,
+                    last_sent_at TEXT NOT NULL,
+                    used INTEGER DEFAULT 0,
+                    attempt_count INTEGER DEFAULT 0,
+                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+                );
+            """);
+
             // Migration step for existing DB files
             migrateSchema(conn);
 
@@ -168,6 +184,15 @@ public class DatabaseInitializer {
 
         try (Statement stmt = conn.createStatement()) {
             stmt.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_notif_idempotency ON notifications(idempotency_key) WHERE idempotency_key IS NOT NULL;");
+        } catch (SQLException ignored) {
+        }
+
+        // OTP table migrations (email_verified flag on users)
+        addColumnIfNotExists(conn, "users", "email_verified", "INTEGER DEFAULT 0");
+
+        // Index for fast OTP lookups
+        try (Statement stmt = conn.createStatement()) {
+            stmt.execute("CREATE INDEX IF NOT EXISTS idx_pending_otps_email_purpose ON pending_otps(email, purpose);");
         } catch (SQLException ignored) {
         }
     }
